@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_server.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jalves-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/10 13:12:33 by jalves-d          #+#    #+#             */
+/*   Updated: 2021/08/10 13:14:20 by jalves-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "minitalk.h"
 
@@ -67,20 +78,20 @@ void	get_signal(int i)
 	}
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	pid_t pid;
+	pid_t	pid;
 
 	if (argc != 1)
 	{
-		write(STDERR_FILENO, "usage: ./server\n", 16);
+		write(1, "usage: ./server\n", 16);
 		return (1);
 	}
 	else
 	{
 		pid = getpid();
-		ft_putnbr_fd(pid, STDOUT_FILENO);
-		ft_putchar_fd('\n', STDOUT_FILENO);
+		ft_putnbr_fd(pid, 1);
+		ft_putchar_fd('\n', 1);
 		while (42)
 		{
 			signal(SIGUSR1, get_signal);

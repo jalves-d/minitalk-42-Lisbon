@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_client.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jalves-d <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/10 13:12:06 by jalves-d          #+#    #+#             */
+/*   Updated: 2021/08/10 13:45:01 by jalves-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "minitalk.h"
 
 int	ft_atoi(const char *str)
 {
 	long int	i;
-	int	negative;
+	int			negative;
 	long int	num;
 
 	num = 0;
@@ -45,11 +56,9 @@ void	parssing(int num, int pid)
 {
 	int	bin[8];
 	int	i;
-	int	j;
 
-	j = 0;
 	i = 7;
-	while (i > -1)
+	while (i >= 0)
 	{
 		if (num % 2 == 0)
 			bin[i] = 0;
@@ -63,18 +72,24 @@ void	parssing(int num, int pid)
 
 int	main(int argc, char **argv)
 {
-	int pid;
-	int i;
+	int	pid;
+	int	i;
 
 	i = 0;
 	if (argc < 3)
-		write(2, "usage: ./client [pid server] [message]\n", 39);
-	if ((pid = ft_atoi(argv[1])) == 0)
-		write(2, "Unknow PID.\n", 32);
-	while (argv[2][i] >= 32 && argv[2][i] <= 126)
 	{
-		parssing(argv[2][i], pid);
-		++i;
+		write(2, "usage: ./client [pid server] [message]\n", 39);
+		exit(0);
+	}
+	if (ft_atoi(argv[1]) == 0)
+		write(2, "Unknow PID.\n", 32);
+	else
+	{
+		pid = ft_atoi(argv[1]);
+		while (argv[2][i] >= 32 && argv[2][i] <= 126)
+		{
+			parssing(argv[2][i], pid);
+			i++;
+		}
 	}
 }
-
