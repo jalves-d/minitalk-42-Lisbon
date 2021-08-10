@@ -6,7 +6,7 @@
 /*   By: jalves-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 13:12:33 by jalves-d          #+#    #+#             */
-/*   Updated: 2021/08/10 13:14:20 by jalves-d         ###   ########.fr       */
+/*   Updated: 2021/08/10 14:40:36 by jalves-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ void	ft_putnbr_fd(int n, int fd)
 
 void	convertbin(int bin[])
 {
-	int		i;
-	int		base;
-	int		convert;
-	char	c;
+	int						i;
+	int						base;
+	int						convert;
+	static unsigned char	c;
 
 	base = 1;
 	i = 7;
 	convert = 0;
-	while (i > 0)
+	while (i >= 0)
 	{
 		convert = convert + (base * bin[i]);
 		i--;
