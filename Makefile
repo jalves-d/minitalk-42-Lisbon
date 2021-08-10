@@ -3,10 +3,10 @@ CC = gcc
 
 CFLAGS = -Werror -Wall -Wextra
 
-SERVER = ft_server
+SERVER = server
 SERVER_SRCS = ft_server.o
 
-CLIENT = ft_client
+CLIENT = client
 CLIENT_SRCS = ft_client.o
 
 all : $(SERVER) $(CLIENT)

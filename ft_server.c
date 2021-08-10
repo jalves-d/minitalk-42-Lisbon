@@ -6,7 +6,7 @@
 /*   By: jalves-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 13:12:33 by jalves-d          #+#    #+#             */
-/*   Updated: 2021/08/10 14:40:36 by jalves-d         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:16:32 by jalves-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd('0', fd);
 }
 
-void	convertbin(int bin[])
+void	convertbin(int *bin)
 {
 	int						i;
 	int						base;
@@ -65,7 +65,9 @@ void	get_signal(int i)
 {
 	int			bin[8];
 	static int	j;
+	int w;
 
+	w = 0;
 	if (i == SIGUSR1)
 		bin[j] = 1;
 	if (i == SIGUSR2)
@@ -75,6 +77,11 @@ void	get_signal(int i)
 	{
 		convertbin(bin);
 		j = 0;
+		while(w < 8)
+		{
+			bin[w] = 0;
+			w++;
+		}
 	}
 }
 
@@ -90,12 +97,11 @@ int	main(int argc, char **argv)
 	else
 	{
 		pid = getpid();
+		signal(SIGUSR1, get_signal);
+		signal(SIGUSR2, get_signal);
 		ft_putnbr_fd(pid, 1);
 		ft_putchar_fd('\n', 1);
-		while (42)
-		{
-			signal(SIGUSR1, get_signal);
-			signal(SIGUSR2, get_signal);
-		}
+		while (1)
+			pause();
 	}
 }
