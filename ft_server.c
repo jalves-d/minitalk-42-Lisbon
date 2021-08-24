@@ -6,7 +6,7 @@
 /*   By: jalves-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 13:12:33 by jalves-d          #+#    #+#             */
-/*   Updated: 2021/08/10 17:16:32 by jalves-d         ###   ########.fr       */
+/*   Updated: 2021/08/24 17:15:50 by jalves-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	get_signal(int i)
 {
 	int			bin[8];
 	static int	j;
-	int w;
+	int			w;
 
 	w = 0;
 	if (i == SIGUSR1)
@@ -77,7 +77,7 @@ void	get_signal(int i)
 	{
 		convertbin(bin);
 		j = 0;
-		while(w < 8)
+		while (w < 8)
 		{
 			bin[w] = 0;
 			w++;
