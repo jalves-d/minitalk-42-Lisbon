@@ -6,7 +6,7 @@
 /*   By: jalves-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 13:12:33 by jalves-d          #+#    #+#             */
-/*   Updated: 2021/08/24 17:15:50 by jalves-d         ###   ########.fr       */
+/*   Updated: 2021/08/24 18:18:44 by jalves-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,9 @@ void	get_signal(int i)
 
 int	main(int argc, char **argv)
 {
-	pid_t	pid;
+	int	pid;
 
+	(void)argv;
 	if (argc != 1)
 	{
 		write(1, "usage: ./server\n", 16);

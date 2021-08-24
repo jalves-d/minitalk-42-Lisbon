@@ -6,7 +6,7 @@
 /*   By: jalves-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 13:12:06 by jalves-d          #+#    #+#             */
-/*   Updated: 2021/08/24 17:12:47 by jalves-d         ###   ########.fr       */
+/*   Updated: 2021/08/24 18:08:14 by jalves-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	main(int argc, char **argv)
 		exit(0);
 	}
 	if (ft_atoi(argv[1]) == 0)
-		write(2, "Unknow PID.\n", 32);
+		write(2, "Unknow PID.\n", 12);
 	else
 	{
 		pid = ft_atoi(argv[1]);
